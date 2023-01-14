@@ -1,0 +1,29 @@
+<div class="pt-5">
+  <div class="row-auto">
+      <h2 class="flex justify-center text-2xl text-center">
+        De verdad, es
+        <span class="text-3xl font-bold mx-1">MUY</span>
+        sencillo.
+      </h2>
+  </div>
+
+    <div class="row-auto">
+      <p class="flex justify-center text-center">
+        Tan solo sigue los pasos dependiendo de tu plataforma:
+      </p>
+    </div>
+
+    <div class="row-auto mt-3">
+      <div class="flex items-center justify-center">
+        <div class="inline-flex rounded-lg mx-auto">
+          <button *ngFor="let plataforma of plataformas" class="py-[10px] sm:py-2 px-[12px] sm:px-6 inline-flex
+            items-center justify-center font-medium border border-gray-50 text-center text-sm
+            sm:text-base bg-white dark:bg-gray-800 hover:bg-gray-200 active:bg-green-400 rounded-t-lg"
+                  [tabIndex]="plataformas.indexOf(plataforma)"
+                  (click)="setPlataformaActivada(plataforma)">
+            {{ plataforma }}
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
