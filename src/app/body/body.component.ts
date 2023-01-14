@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Plataformas } from "../plataformas";
 
 @Component({
   selector: 'app-body',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
 export class BodyComponent {
 
   constructor() {
+    for (let plataforma in Plataformas) {
+      this.plataformas.push(plataforma);
+    }
+
     const userAgent: string = navigator.userAgent.toLowerCase();
 
     if (userAgent.indexOf('windows') > -1) {
@@ -43,7 +48,7 @@ export class BodyComponent {
     return this._plataformas;
   }
 
-  private _plataformas: string[] = ['Windows', 'Mac', 'Linux', 'Android', 'iOS'];
+  private _plataformas: string[] = [];
 
   private _plataformaActiva: string = '';
 
