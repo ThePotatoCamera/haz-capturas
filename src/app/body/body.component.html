@@ -18,7 +18,7 @@
         <div class="inline-flex rounded-lg mx-auto">
           <button *ngFor="let plataforma of plataformas" class="py-[10px] sm:py-2 px-[12px] sm:px-6 inline-flex
             items-center justify-center font-medium border border-gray-50 text-center text-sm
-            sm:text-base bg-white dark:bg-gray-800 hover:bg-gray-200 active:bg-green-400 rounded-t-lg transition"
+            sm:text-base bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-200 dark:active:bg-green-600 dark:hover:text-black active:bg-green-400 rounded-t-lg transition"
                   [tabIndex]="plataformas.indexOf(plataforma)"
                   (click)="setPlataformaActivada(plataforma)">
             {{ plataforma }}
