@@ -20,7 +20,10 @@
             items-center justify-center font-medium border border-gray-50 text-center text-sm
             sm:text-base bg-white dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-200 dark:active:bg-green-600 dark:hover:text-black active:bg-green-400 rounded-t-lg transition"
                   [tabIndex]="plataformas.indexOf(plataforma)"
-                  (click)="setPlataformaActivada(plataforma)">
+                  (click)="setPlataformaActivada(plataforma)"
+                  routerLink="{{plataforma.toLowerCase()}}"
+                  routerLinkActive="bg-green-500 dark:bg-green-600 text-white dark:text-black"
+          >
             {{ plataforma }}
           </button>
         </div>
