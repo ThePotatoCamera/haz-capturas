@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Plataformas } from "../plataformas";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-body',
@@ -8,7 +9,7 @@ import { Plataformas } from "../plataformas";
 })
 export class BodyComponent {
 
-  constructor() {
+  constructor(private _router: Router) {
     for (let plataforma in Plataformas) {
       this.plataformas.push(plataforma);
     }
@@ -16,25 +17,25 @@ export class BodyComponent {
     const userAgent: string = navigator.userAgent.toLowerCase();
 
     if (userAgent.indexOf('windows') > -1) {
-      this.plataformaActiva = 'Windows';
+      this._router.navigate(['windows']);
     }
     else if (userAgent.indexOf('iphone') > -1) {
-      this.plataformaActiva = 'iOS';
+      this._router.navigate(['ios']);
     }
     else if (userAgent.indexOf('ipad') > -1) {
-      this.plataformaActiva = 'iOS';
+      this._router.navigate(['ios']);
     }
     else if (userAgent.indexOf('mac') > -1) {
-      this.plataformaActiva = 'Mac';
+      this._router.navigate(['mac']);
     }
-    else if (userAgent.indexOf('android')) {
-      this.plataformaActiva = 'Android';
+    else if (userAgent.indexOf('android') > -1) {
+      this._router.navigate(['android']);
     }
     else if (userAgent.indexOf('linux') > -1) {
-      this.plataformaActiva = 'Linux';
+      this._router.navigate(['linux']);
     }
     else {
-      this.plataformaActiva = 'Linux';
+      this._router.navigate(['linux']);
     }
   }
   get plataformaActiva(): string {

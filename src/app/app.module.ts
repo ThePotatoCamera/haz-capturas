@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
 import { MacComponent } from './body/mac/mac.component';
+import { IosComponent } from './body/ios/ios.component';
+import { LinuxComponent } from './body/linux/linux.component';
+import { AndroidComponent } from './body/android/android.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
-    MacComponent
+    MacComponent,
+    IosComponent,
+    LinuxComponent,
+    AndroidComponent
   ],
   imports: [
     BrowserModule,
