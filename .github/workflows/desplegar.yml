@@ -32,6 +32,10 @@ jobs:
         run: pnpm build
       - name: Copiar index a 404
         run: cp dist/haz-capturas/index.html dist/haz-capturas/404.html
+      - name: Copiar sitemap
+        run: cp src/sitemap.xml dist/haz-capturas/sitemap.xml
+      - name: Copiar robots.txt
+        run: cp src/robots.txt dist/haz-capturas/robots.txt
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v1
         with:
