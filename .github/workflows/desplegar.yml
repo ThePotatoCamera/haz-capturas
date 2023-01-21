@@ -33,7 +33,7 @@ jobs:
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./dist
+          path: ./dist/haz-capturas
 
   deploy:
     environment:
