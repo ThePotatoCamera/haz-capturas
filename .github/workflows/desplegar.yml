@@ -30,6 +30,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Compilar página
         run: pnpm build
+      - name: Copiar index a 404
+        run: cp dist/haz-capturas/index.html dist/haz-capturas/404.html
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v1
         with:
