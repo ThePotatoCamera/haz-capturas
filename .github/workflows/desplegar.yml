@@ -28,7 +28,7 @@ jobs:
       - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
       - name: Instalar CLI de Angular
-        uses: actions/angular-github-actions@v1.1.0
+        uses: mayurrawte/github-angular-actions@v1.1.0
       - name: Compilar página
         run: ng build
       - name: Subir artefacto
