@@ -27,10 +27,8 @@ jobs:
           cache: 'pnpm'
       - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
-      - name: Instalar CLI de Angular
-        uses: mayurrawte/github-angular-actions@v1.1.0
       - name: Compilar página
-        run: ng build
+        run: pnpm build
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v1
         with:
