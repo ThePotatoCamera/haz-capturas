@@ -3,46 +3,46 @@ name: Desplegar la pagina
 on:
   workflow_dispatch:
 
-  permissions:
-    contents: read
-    pages: write
+permissions:
+  contents: read
+  pages: write
 
-  concurrency:
-    group: "pages"
-    cancel-in-progress: true
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3
-        - uses: pnpm/action-setup@v2
-          with:
-            version: latest
-        - name: Configurar node
-          uses: actions/setup-node@v3
-          with:
-            node-version: '16'
-            cache: 'pnpm'
-        - name: Instalar dependencias
-          run: pnpm install --frozen-lockfile
-        - name: Instalar CLI de Angular
-          uses: actions/angular-github-actions
-        - name: Compilar página
-          run: ng build
-        - name: Subir artefacto
-          uses: actions/upload-pages-artifact@v1
-          with:
-            path: ./dist
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Configurar node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+      - name: Instalar CLI de Angular
+        uses: actions/angular-github-actions
+      - name: Compilar página
+        run: ng build
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
 
-    deploy:
-      environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
-      runs-on: ubuntu-latest
-      needs: build
-      steps:
-        - name: Desplegar a GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v1
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
