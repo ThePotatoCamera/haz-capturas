@@ -27,7 +27,7 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - name: Instalar dependencias
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Compilar página
         run: pnpm build
       - name: Copiar index a 404
